@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#176b5b" />
+  <title>廢(污)水生物處理程序｜題庫測驗</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">廢(污)水生物處理程序</p>
+        <h1>題庫智慧測驗</h1>
+        <p class="subtitle">430 題題庫｜每回 40 題｜8 大主題平均抽題｜錯題優先複習</p>
+      </div>
+      <div class="hero-badge" aria-label="本回題數"><strong>40</strong><span>題／回</span></div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section id="dashboard" class="panel dashboard">
+      <div class="section-head">
+        <div><span class="kicker">LEARNING STATUS</span><h2>學習進度</h2></div>
+        <button id="resetBtn" class="btn ghost danger-text" type="button">重設進度</button>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><span>題庫總數</span><strong id="statTotal">430</strong><small>題</small></div>
+        <div class="stat-card success"><span>已掌握</span><strong id="statMastered">0</strong><small>題</small></div>
+        <div class="stat-card danger"><span>目前錯題</span><strong id="statWrong">0</strong><small>題</small></div>
+        <div class="stat-card"><span>尚未掌握</span><strong id="statRemaining">430</strong><small>題</small></div>
+      </div>
+      <div class="progress-block">
+        <div class="progress-row"><span>整體掌握率</span><strong id="masteryText">0%</strong></div>
+        <div class="progress-track"><div id="masteryBar" class="progress-fill"></div></div>
+      </div>
+      <div class="dashboard-actions">
+        <button id="startBtn" class="btn primary big" type="button">開始 40 題測驗</button>
+        <button id="exportBtn" class="btn secondary" type="button">匯出學習紀錄</button>
+        <label class="btn secondary file-btn">匯入學習紀錄<input id="importInput" type="file" accept="application/json,.json" /></label>
+      </div>
+      <p class="local-note">學習紀錄儲存在目前瀏覽器。換電腦、換瀏覽器或清除網站資料時，請先匯出紀錄備份。</p>
+    </section>
+
+    <section id="quizView" class="hidden">
+      <div class="quiz-toolbar panel sticky">
+        <div><span class="kicker">CURRENT QUIZ</span><h2>本回測驗 <span id="quizCount"></span></h2></div>
+        <div class="quiz-status"><span id="answeredCount">已答 0 / 40</span><button id="submitTopBtn" class="btn primary" type="button">交卷</button></div>
+      </div>
+      <div class="quiz-layout">
+        <aside class="panel navigator-wrap"><h3>題號</h3><div id="navigator" class="navigator"></div><div class="legend"><span><i class="dot done"></i>已作答</span><span><i class="dot todo"></i>未作答</span></div></aside>
+        <div id="questionsContainer" class="questions"></div>
+      </div>
+      <div class="submit-zone panel"><p id="submitHint">完成後交卷，即可查看成績、答案與弱項分析。</p><button id="submitBtn" class="btn primary big" type="button">交卷並查看結果</button></div>
+    </section>
+
+    <section id="resultView" class="hidden">
+      <div class="panel result-hero">
+        <span class="kicker">RESULT</span><h2>本回測驗結果</h2>
+        <div class="score-ring"><strong id="scorePct">0</strong><span>分</span></div>
+        <div class="result-metrics">
+          <div><strong id="correctCount">0</strong><span>答對</span></div>
+          <div><strong id="wrongCount">0</strong><span>答錯</span></div>
+          <div><strong id="blankCount">0</strong><span>未作答</span></div>
+        </div>
+      </div>
+
+      <div class="panel analysis-panel">
+        <div class="section-head"><div><span class="kicker">ANALYSIS</span><h2>答題分析與弱項</h2></div></div>
+        <div id="analysisSummary" class="analysis-summary"></div>
+        <div id="categoryAnalysis" class="category-analysis"></div>
+        <div id="weaknessBox" class="weakness-box"></div>
+      </div>
+
+      <div class="section-head result-list-head"><div><span class="kicker">REVIEW</span><h2>逐題答案</h2></div><button id="nextRoundBtn" class="btn primary" type="button">下一回合</button></div>
+      <div id="reviewContainer" class="review-list"></div>
+      <div class="bottom-actions panel"><button id="nextRoundBottomBtn" class="btn primary big" type="button">進行下一回合</button><button id="homeBtn" class="btn secondary" type="button">回學習進度</button></div>
+    </section>
+  </main>
+
+  <footer>廢(污)水生物處理程序｜智慧題庫測驗</footer>
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
